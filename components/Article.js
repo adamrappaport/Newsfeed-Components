@@ -94,6 +94,7 @@ const data = [
   Your component is a function that takes an article object as its only argument,
   and returns a DOM node looking like the one below:
 
+
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
@@ -102,9 +103,85 @@ const data = [
 
     <span class="expandButton">+</span>
   </div>
+  */
+ //fins something that exhists in
+
+  function articleMaker(obj){ 
+    
+    
+
+    const divA = document.createElement('div') //create all doc elements they are asking for
+    const header = document.createElement('h2')
+    const date1 = document.createElement('p')
+    const p1 = document.createElement('p')
+    const p2 = document.createElement('p')
+    const p3 = document.createElement('p')
+    const span1 = document.createElement('span')
+
+    divA.classList.add('article') // assing class name to things that need it
+    date1.classList.add('date')
+    span1.classList.add('expandButton')
+
+     // append to something that exhists in HTML
+    divA.appendChild(header)
+    divA.appendChild(date1)
+    divA.appendChild(p1)
+    divA.appendChild(p2)
+    divA.appendChild(p3)
+    divA.appendChild(span1)
+
+    //step 4 make sure values have content
+    
+   header.textContent = obj.title
+   date1.textContent = obj.date
+   p1.textContent = obj.firstParagraph
+   p2.textContent = obj.secondParagraph
+   p3.textContent= obj.thirdParagraph
+   span1.textContent = `carrot`
+
+    
+
+    span1.addEventListener('click', ()=>{ //created event listener on item we want to be active. 
+      
+      divA.classList.toggle('article-open')//option to on or off
+      divA.classList.toggle('article-close')
+
+    })
+
+    return divA
+
+  }
+  data.push({
+    title: 'title',
+    date:'jan15',
+    firstParagraph:'yooyoyo',
+    secondParagraph:'eyyyyy',
+    thirdParagraph: 'likee'
+  })
+
+  const groupArticles = document.querySelector('.articles')
+   data.map((obj) => {
+    const connecter = articleMaker(obj)
+    groupArticles.appendChild(connecter)
+    console.log(connecter)
+  });
+  
+  
+  
+
+  /*
+
+  
 
   Step 2: Still inside `articleMaker`, add an event listener to the span.expandButton.
-  This listener should toggle the class 'article-open' on div.article.
+  This listener should toggle the class 'article-open' on div.article.*/
+
+
+
+  /*
+  
+
+
 
   Step 3: Don't forget to return something from your function!
 
