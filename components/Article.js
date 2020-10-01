@@ -106,6 +106,9 @@ const data = [
   */
  //fins something that exhists in
 
+
+
+
   function articleMaker(obj){ 
     
     
